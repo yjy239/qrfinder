@@ -2,10 +2,11 @@ package com.yjy.qrfinder;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.yjy.qrfind.QRFinder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +25,12 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         ImageView imageView = findViewById(R.id.sample_img);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.test3);
+
+
         imageView.setImageBitmap(QRFinder.findQR(bitmap));
 
+
     }
+
 
 }
